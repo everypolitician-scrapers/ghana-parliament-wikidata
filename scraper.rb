@@ -1,6 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require 'rest-client'
 require 'scraperwiki'
 require 'wikidata/fetcher'
 require 'nokogiri'
@@ -36,3 +37,5 @@ def fetch_info(names)
 end
 
 fetch_info wikinames_from('https://en.wikipedia.org/wiki/MPs_elected_in_the_Ghanaian_parliamentary_election,_2012')
+warn RestClient.post ENV['MORPH_REBUILDER_URL'], {} if ENV['MORPH_REBUILDER_URL']
+
