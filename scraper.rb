@@ -8,4 +8,3 @@ names = EveryPolitician::Wikidata.wikipedia_xpath(
   xpath: '//table[.//th[text()="Constituency"]]//tr[td]//td[2]//a[not(@class="new")]/@title',
 ).reject { |n| n.downcase.include? 'constituency' }
 EveryPolitician::Wikidata.scrape_wikidata(names: { en: names }, output: false)
-warn EveryPolitician::Wikidata.notify_rebuilder
